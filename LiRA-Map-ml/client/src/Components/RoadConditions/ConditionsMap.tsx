@@ -34,10 +34,8 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
 
     const onClick = useCallback( (way_id: string, way_length: number) => {
         getConditions( way_id, name, (wc: Condition[]) => {
-            let copy_w = Object.assign({}, wc);
-            copy_w.filter(p=>p.value>= filter);
-            wc.forEach(p=> console.log(p.value));
-             
+           
+            
             setWayData( {
                 labels: wc.map( p => p.way_dist * way_length ),
                 datasets: [ {
