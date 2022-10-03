@@ -36,7 +36,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
         getConditions( way_id, name, (wc: Condition[]) => {
             let copy_w = Object.assign({}, wc);
             copy_w.filter(p=>p.value>= filter);
-            copy_w.forEach(p=> console.log(p.value));
+            wc.forEach(p=> console.log(p.value));
             if(copy_w.length===0){
                 
             }
