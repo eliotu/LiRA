@@ -23,7 +23,7 @@ interface Props {
     setWayData: React.Dispatch<React.SetStateAction<ChartData<"line", number[], number> | undefined>>;
 }
 
-const filter: number= 3;
+const filter: number= 4;
 
 const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) => {
 
