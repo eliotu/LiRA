@@ -35,7 +35,7 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
 
     useEffect( () => {
         if ( zoom === undefined ) return;
-        const z = Math.max(0, zoom - 12)
+        const z = Math.max(0, zoom )
         getWaysConditions(type, z, (data: WaysConditions) => {
             console.log(data)
             setWays( data )
