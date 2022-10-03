@@ -37,13 +37,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
             let copy_w = Object.assign({}, wc);
             copy_w.filter(p=>p.value>= filter);
             wc.forEach(p=> console.log(p.value));
-            if(copy_w.length===0){
-                
-            }
-
-            
-
-            else{   
+             
             setWayData( {
                 labels: wc.map( p => p.way_dist * way_length ),
                 datasets: [ {
@@ -56,7 +50,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
                 data: wc.map( p => p.value ),
                 } ]
             } )
-        }
+        
         } )
              
     
