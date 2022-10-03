@@ -23,7 +23,6 @@ interface Props {
     setWayData: React.Dispatch<React.SetStateAction<ChartData<"line", number[], number> | undefined>>;
 }
 
-const filter: number= 4;
 
 const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) => {
 
@@ -42,7 +41,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
                 type: 'line' as const,
                 label: way_id,
                 borderColor: 'rgb(160,32,240)',
-                 borderWidth: 2,
+                borderWidth: 2,
                 fill: false,
                 tension: 0.1,
                 data: wc.map( p => p.value ),
