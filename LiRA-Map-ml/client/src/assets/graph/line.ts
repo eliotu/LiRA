@@ -24,17 +24,17 @@ export default class GLine
         time: boolean | undefined,
         filter: boolean
     ) {
-        const color = getColor(0, 0)
+        const color = getColor(0, i)
         const hoverColor = "url(#line-gradient)"
 
         const pathOpts: PathOptions = { stroke: color }
-        const hoverPathOpts: PathOptions = { stroke: "blue" }
+        const hoverPathOpts: PathOptions = { stroke:  hoverColor}
 
         const dotsOpts: DotsOptions = { fill: color, radius: 6 }
         const hoverDotsOpts: DotsOptions = { fill: hoverColor }
 
         const hitboxOpts: PathOptions = { stroke: "transparent", strokeWidth: 30 }
-        const hoverHitboxOpts: PathOptions = { stroke: "transparent", strokeWidth: 30 }
+        const hoverHitboxOpts: PathOptions = { stroke: "transparent", strokeWidth: 1000 }
         
         const path = new Path(svg, label, data, [xAxis, yAxis], pathOpts, hoverPathOpts )
         const hitbox = new Path(svg, "hitbox", data, [xAxis, yAxis], hitboxOpts, hoverHitboxOpts )
