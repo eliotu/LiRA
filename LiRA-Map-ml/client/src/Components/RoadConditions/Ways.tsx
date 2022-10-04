@@ -31,6 +31,7 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
             if ( ways && onClick )
                 onClick(ways.way_ids[i], ways.way_lengths[i])
         },
+
     }), [ways] )
 
     useEffect( () => {

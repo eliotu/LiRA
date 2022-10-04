@@ -21,7 +21,8 @@ export default class GLine
         xAxis: Axis,
         yAxis: Axis,
         onHover: (d: DotHover | undefined) => void,
-        time: boolean | undefined
+        time: boolean | undefined,
+        filter: boolean | undefined
     ) {
         const color = getColor(0, i)
         const hoverColor = "url(#line-gradient)"
