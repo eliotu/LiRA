@@ -37,8 +37,8 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
                 datasets: [ {
                     type: 'line' as const,
                     label: way_id,
-                    borderColor: 'rgb(160,32,240)',
-                    borderWidth: 10,
+                    borderColor: ' rgb(105,105,105)',
+                    borderWidth: 2,
                     fill: false,
                     tension: 0.1,
                     data: wc.map( p => p.value ),
