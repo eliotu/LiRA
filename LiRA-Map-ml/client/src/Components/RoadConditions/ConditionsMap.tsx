@@ -31,9 +31,8 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
     const [width, _] = useSize(ref)
 
     const onClick = useCallback( (way_id: string, way_length: number) => {
-
         getConditions( way_id, name, (wc: Condition[]) => {
-            wc.forEach(p=>console.log(p.value));
+            console.log("im being hover heheh")
             setWayData( {
                 labels: wc.map( p => p.way_dist * way_length ),
                 datasets: [ {
@@ -53,7 +52,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
         <div className="road-conditions-map" ref={ref}>
             <PaletteEditor 
                 defaultPalette={RENDERER_PALETTE}
-                width={width}
+                width={10}
                 cursorOptions={ { scale: max, grid, samples } }
                 onChange={setPalette} />
 
