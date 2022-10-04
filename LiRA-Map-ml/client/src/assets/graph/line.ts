@@ -28,7 +28,7 @@ export default class GLine
         const hoverColor = "url(#line-gradient)"
 
         const pathOpts: PathOptions = { stroke: color }
-        const hoverPathOpts: PathOptions = { stroke: hoverColor }
+        const hoverPathOpts: PathOptions = { stroke: "blue" }
 
         const dotsOpts: DotsOptions = { fill: color, radius: 6 }
         const hoverDotsOpts: DotsOptions = { fill: hoverColor }
