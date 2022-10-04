@@ -31,6 +31,10 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
             if ( ways && onClick )
                 onClick(ways.way_ids[i], ways.way_lengths[i])
         },
+        mouseover:(_,i)=>{
+            console.log("on y est presque");
+        }
+
 
     }), [ways] )
 
@@ -38,7 +42,7 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
         if ( zoom === undefined ) return;
         const z = Math.max(0, zoom - 12)
         getWaysConditions(type, z, (data: WaysConditions) => {
-            console.log(data)
+            console.log("aqui tengo data")
             setWays( data )
         } )
     }, [zoom] )
