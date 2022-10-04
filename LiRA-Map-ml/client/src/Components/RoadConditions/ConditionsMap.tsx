@@ -31,7 +31,9 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
     const [width, _] = useSize(ref)
 
     const onClick = useCallback( (way_id: string, way_length: number) => {
+
         getConditions( way_id, name, (wc: Condition[]) => {
+            wc.forEach(p=>console.log(p.value));
             setWayData( {
                 labels: wc.map( p => p.way_dist * way_length ),
                 datasets: [ {
