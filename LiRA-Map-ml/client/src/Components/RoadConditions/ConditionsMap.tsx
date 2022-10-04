@@ -52,7 +52,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
         <div className="road-conditions-map" ref={ref}>
             <PaletteEditor 
                 defaultPalette={RENDERER_PALETTE}
-                width={10}
+                width={width}
                 cursorOptions={ { scale: max, grid, samples } }
                 onChange={setPalette} />
 
