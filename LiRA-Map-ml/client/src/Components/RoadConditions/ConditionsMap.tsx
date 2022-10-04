@@ -30,7 +30,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
     const ref = useRef(null);
     const [width, _] = useSize(ref)
 
-
+    console.log(name);
 
     const onClick = useCallback( (way_id: string, way_length: number) => {
         getConditions( way_id, name, (wc: Condition[]) => {
