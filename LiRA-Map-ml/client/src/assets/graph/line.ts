@@ -24,7 +24,7 @@ export default class GLine
         time: boolean | undefined,
         filter: boolean
     ) {
-        const color = getColor(0, i)
+        const color = getColor(0, 1)
         const hoverColor = "url(#line-gradient)"
 
         const pathOpts: PathOptions = { stroke: color }
