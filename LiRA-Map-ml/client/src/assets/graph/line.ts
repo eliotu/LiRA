@@ -34,7 +34,7 @@ export default class GLine
         const hoverDotsOpts: DotsOptions = { fill: hoverColor }
 
         const hitboxOpts: PathOptions = { stroke: "transparent", strokeWidth: 30 }
-        const hoverHitboxOpts: PathOptions = { stroke: "transparent", strokeWidth: 1000 }
+        const hoverHitboxOpts: PathOptions = { stroke: "transparent", strokeWidth: 30 }
         
         const path = new Path(svg, label, data, [xAxis, yAxis], pathOpts, hoverPathOpts )
         const hitbox = new Path(svg, "hitbox", data, [xAxis, yAxis], hitboxOpts, hoverHitboxOpts )
@@ -48,7 +48,7 @@ export default class GLine
         } )
 
         hitbox.addMouseOut( () => {
-            path.mouseOut();
+            //path.mouseOut();
             // dots.mouseOut();
         } )
 
