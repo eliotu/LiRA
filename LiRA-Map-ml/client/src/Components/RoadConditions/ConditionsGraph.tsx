@@ -20,7 +20,7 @@ const options = ({name, min, max}: ConditionType): ChartOptions<'line'> => ({
         x: {
             title: { 
                 display: true, 
-                text: 'distance (m)' 
+                text: 'distance  bonne tule (m)' 
             },
             ticks: { 
                 maxTicksLimit: 30,
