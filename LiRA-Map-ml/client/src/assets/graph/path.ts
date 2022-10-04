@@ -36,6 +36,7 @@ class Path extends Layer<PathOptions>
     }
 
     addMouseOver(callback: any) {
+        console.log("HOVER");
         this.path.on('mouseover', callback);
         return this
     }

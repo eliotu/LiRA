@@ -38,10 +38,9 @@ const Line: FC<ILine> = ( { svg, xAxis, yAxis, data, bounds, label, i, time } ) 
 
         const onHover = (d: DotHover | undefined) => d === undefined 
             ? setDotHover( undefined )
-            : 
-            console.log("being hover for real");
-            setDotHover( { ...d, x: d.x / _bounds.maxX } )
+            : setDotHover( { ...d, x: d.x / _bounds.maxX } )
 
+        if(onHover!=setDotHover( undefined )){console.log("HOVER");}
         const line = new GLine(svg, label, i, data, xAxis, yAxis, onHover, time)
 
         return () => {
