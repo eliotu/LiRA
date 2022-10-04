@@ -23,7 +23,6 @@ interface Props {
     setWayData: React.Dispatch<React.SetStateAction<ChartData<"line", number[], number> | undefined>>;
 }
 
-
 const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) => {
 
     const { name, max, grid, samples } = type;
@@ -33,24 +32,19 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
 
     const onClick = useCallback( (way_id: string, way_length: number) => {
         getConditions( way_id, name, (wc: Condition[]) => {
-           
-            
             setWayData( {
                 labels: wc.map( p => p.way_dist * way_length ),
                 datasets: [ {
-                type: 'line' as const,
-                label: way_id,
-                borderColor: 'rgb(160,32,240)',
-                borderWidth: 2,
-                fill: false,
-                tension: 0.1,
-                data: wc.map( p => p.value ),
+                    type: 'line' as const,
+                    label: way_id,
+                    borderColor: 'rgb(255, 99, 132)',
+                    borderWidth: 2,
+                    fill: false,
+                    tension: 0.1,
+                    data: wc.map( p => p.value ),
                 } ]
             } )
-        
         } )
-             
-    
     }, [] )
 
     return (

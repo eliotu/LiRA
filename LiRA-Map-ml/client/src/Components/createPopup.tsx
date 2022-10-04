@@ -13,7 +13,6 @@ const createPopup = <T,>() => {
             customClass: { 
                 popup: 'sweetalert-popup', 
                 title: 'sweetalert-title'
-                
             } 
         } )
     }
