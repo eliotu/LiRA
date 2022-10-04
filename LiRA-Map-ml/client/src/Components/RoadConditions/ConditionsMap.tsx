@@ -52,7 +52,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
             }
             else{
                 setWayData( {
-                    labels: null,
+                    labels: [],
                     datasets: [ {
                         type: 'line' as const,
                         label: way_id,
@@ -60,7 +60,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
                         borderWidth: 2,
                         fill: false,
                         tension: 0.1,
-                        data: null,
+                        data: [],
                     } ]
                 } )
 
