@@ -32,7 +32,10 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
 
     const onClick = useCallback( (way_id: string, way_length: number) => {
         getConditions( way_id, name, (wc: Condition[]) => {
-            console.log("im being hover heheh")
+
+            const max = wc.reduce((prev, current) => (prev.value > current.value) ? prev : current).value
+            console.log(max)
+            if(max>4){
             setWayData( {
                 labels: wc.map( p => p.way_dist * way_length ),
                 datasets: [ {
@@ -45,6 +48,9 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
                     data: wc.map( p => p.value ),
                 } ]
             } )
+
+            }
+           
         } )
     }, [] )
 
