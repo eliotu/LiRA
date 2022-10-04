@@ -48,7 +48,8 @@ export default class GLine
         } )
 
         hitbox.addMouseOut( () => {
-            //path.mouseOut();
+            console.log("im here");
+            path.mouseOut();
             // dots.mouseOut();
         } )
 
