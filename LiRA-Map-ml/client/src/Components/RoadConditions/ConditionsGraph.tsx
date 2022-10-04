@@ -70,6 +70,7 @@ const ConditionsGraph: FC<Props> = ( { type, data, palette } ) => {
     const graphOptions: ChartOptions<'line'> = useMemo( () => ({
         ...options(type),
         onClick: (event: ChartEvent, elts: ActiveElement[], chart: Chart<keyof ChartTypeRegistry, number[], unknown>) => {
+            console.log("im being clicked");
             if ( elts.length === 0 ) return;
             const elt = elts[0] // doesnt work if multiple datasets
             const pointIndex = elt.index
