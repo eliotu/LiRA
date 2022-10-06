@@ -1,6 +1,7 @@
 
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { TRGB } from 'react-gradient-hook/lib/types';
+import { Tooltip } from 'react-leaflet';
 import { HotlineOptions } from 'react-leaflet-hotline';
 import { HotlineEventHandlers } from 'react-leaflet-hotline/lib/types';
 import { useGraph } from '../../context/GraphContext';
@@ -51,12 +52,13 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
     return (
         <>
         { ways 
-            ? <DistHotline 
-                way_ids={ways.way_ids}
-                geometry={ways.geometry}
-                conditions={ways.conditions} 
-                options={options} 
-                eventHandlers={handlers}/> 
+            ? <><DistHotline
+                    way_ids={ways.way_ids}
+                    geometry={ways.geometry}
+                    conditions={ways.conditions}
+                    options={options}
+                    eventHandlers={handlers} /><Tooltip> "TrcleMarker"</Tooltip></>
+
             : null 
         }
         </>
