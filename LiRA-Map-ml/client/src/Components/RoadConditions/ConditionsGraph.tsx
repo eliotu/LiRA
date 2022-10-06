@@ -13,7 +13,7 @@ const options = ({name, min, max}: ConditionType): ChartOptions<'line'> => ({
     plugins: {
         legend: {
             position: 'top' as const,
-            labels: { color: 'white' },
+            labels: { color: 'blue' },
         },
     },
     scales: {
@@ -88,7 +88,6 @@ const ConditionsGraph: FC<Props> = ( { type, data, palette } ) => {
                 data={data} 
                 options={graphOptions}  />  
             }
-            {"hsiw"}
         </div>
     )
 }
