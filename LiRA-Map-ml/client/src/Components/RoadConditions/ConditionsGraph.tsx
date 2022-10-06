@@ -76,6 +76,7 @@ const ConditionsGraph: FC<Props> = ( { type, data, palette } ) => {
             if ( elts.length === 0 ) return;
             const elt = elts[0] // doesnt work if multiple datasets
             const pointIndex = elt.index
+            console.log("on est ou la ");
             console.log(pointIndex, event, elts);
         }
     }), [] )

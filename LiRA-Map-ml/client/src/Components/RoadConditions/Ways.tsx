@@ -57,7 +57,7 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
                     geometry={ways.geometry}
                     conditions={ways.conditions}
                     options={options}
-                    eventHandlers={handlers} /><Tooltip> "TrcleMarker"</Tooltip></>
+                    eventHandlers={handlers} /><Tooltip> xdn </Tooltip></>
 
             : null 
         }
