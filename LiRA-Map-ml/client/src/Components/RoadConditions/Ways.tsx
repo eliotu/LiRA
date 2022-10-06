@@ -1,5 +1,5 @@
 
-import { latLng } from 'Leaflet.MultiOptionsPolyline';
+import { latLng, map } from 'Leaflet.MultiOptionsPolyline';
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { TRGB } from 'react-gradient-hook/lib/types';
 import { Tooltip } from 'react-leaflet';
@@ -35,7 +35,7 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
         },
         mouseover:(e,i)=>{
             console.log("on y est presque");
-            e.popup(latLng,{content:'<p>Hello world!<br />This is a nice popup.</p>'});
+            e.popup().setLatLng(latLng).setContent('<p>Hello world!<br />This is a nice popup.</p>').openOn(map);;
         }
 
 
