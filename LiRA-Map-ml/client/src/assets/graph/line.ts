@@ -46,7 +46,7 @@ export default class GLine
             path.mouseOver();
             // dots.mouseOver();
         } )
-
+//road conditions
         hitbox.addMouseOut( () => {
             console.log("im here");
             path.mouseOut();

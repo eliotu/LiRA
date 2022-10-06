@@ -88,6 +88,7 @@ const ConditionsGraph: FC<Props> = ( { type, data, palette } ) => {
                 data={data} 
                 options={graphOptions}  />  
             }
+            {"hsiw"}
         </div>
     )
 }
