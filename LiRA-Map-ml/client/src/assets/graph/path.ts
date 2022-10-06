@@ -47,7 +47,7 @@ class Path extends Layer<PathOptions>
     }
 
     mouseOver() 
-    {
+    {   console.log("on y est");
         return this.path
             .style("stroke-width", this.hoverOptions.strokeWidth )
             .style('stroke', this.hoverOptions.stroke )
