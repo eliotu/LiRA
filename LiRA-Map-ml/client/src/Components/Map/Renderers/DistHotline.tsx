@@ -25,6 +25,8 @@ interface IDistHotline {
     conditions: Condition[][];
     options?: HotlineOptions,
     eventHandlers?: HotlineEventHandlers;
+    filter?:boolean;
+
 }
 
 const handler = (eventHandlers: HotlineEventHandlers | undefined, event: keyof HotlineEventHandlers, opacity: number) => {
