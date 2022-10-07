@@ -32,10 +32,9 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
     const [width, _] = useSize(ref)
 
     console.log(name);
-
+    let filter= true;
     const onClick = useCallback( (way_id: string, way_length: number) => {
         getConditions( way_id, name, (wc: Condition[]) => {
-            let filter=true;
             const max = wc.reduce((prev, current) => (prev.value > current.value) ? prev : current).value
             console.log(max)
             if(max>4){
@@ -82,7 +81,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
                 onChange={setPalette} />
 
             <MapWrapper>
-                <Ways palette={palette} type={name} onClick={onClick} filter={true} />
+                <Ways palette={palette} type={name} onClick={onClick} filter={filter} />
             </MapWrapper>
         </div>
     )
