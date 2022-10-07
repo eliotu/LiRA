@@ -40,6 +40,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
         const number=Number(search)
         console.log("hello");
         if(!isNaN(number)){
+            console.log(number);
             setCount(number);
         }
 
