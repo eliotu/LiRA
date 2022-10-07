@@ -38,7 +38,6 @@ export interface TripsOptions {
 
 export interface FilteringOptions{
 	search: string;
-	Value: number;
 }
 
 
