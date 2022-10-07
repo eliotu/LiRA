@@ -32,14 +32,14 @@ const Ways: FC<IWays> = ( { palette, type, onClick, filter } ) => {
 
     const handlers = useMemo<HotlineEventHandlers>( () => ({
         click: (_, i) => {
-            if(filter){
+           /**  if(filter){
                 const popup=createPopup();
                 popup( {
                     icon: "warning",
                     title: `This trip doesn't have any value with the ira wanted   `,
                     toast: true
                 } );
-        }
+        }**/
             if ( ways && onClick )
                 onClick(ways.way_ids[i], ways.way_lengths[i])
         },
