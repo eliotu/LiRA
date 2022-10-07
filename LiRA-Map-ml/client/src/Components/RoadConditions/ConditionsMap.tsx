@@ -38,9 +38,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
 
     const onChange=({search}: FilteringOptions) =>{
         const number=Number(search)
-        console.log("hello");
-        
-        console.log(count);
+       
         if(!isNaN(number)){
             setCount(number);
         }
