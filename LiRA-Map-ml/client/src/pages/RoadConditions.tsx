@@ -17,7 +17,7 @@ const RoadConditions = () => {
     
     const [palette, setPalette] = useState<Palette>([])
     const [wayData, setWayData] = useState<ChartData<"line", number[], number>>()
-
+    console.log(palette);
     const type: ConditionType = {
         name: 'IRI',
         min: 0,

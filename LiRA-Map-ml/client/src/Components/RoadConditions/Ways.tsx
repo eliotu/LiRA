@@ -43,7 +43,7 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
         },
         mouseover:(e,i)=>{
             console.log("on y est presque");
-      
+            
         }
 
 
