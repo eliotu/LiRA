@@ -49,7 +49,7 @@ export default class DistRenderer extends Renderer<DistData> {
             : 1
         try{
             if(filter){
-                gradient.addColorStop(dist, `rgba(160,32,240,${opacity})`);
+                gradient.addColorStop(dist, `rgba(218,165,32,${opacity})`);
                 
 
             }
@@ -125,7 +125,7 @@ export default class DistRenderer extends Renderer<DistData> {
 
             const way_id = this.way_ids[i];
             const conditions = this.conditions[i]
-            console.log(this.conditions[i]);
+            
             const max=this.conditions[i].reduce((prev, current) => (prev.value > current.value) ? prev : current).value
             const filter=max>4 ? true: false;
             
