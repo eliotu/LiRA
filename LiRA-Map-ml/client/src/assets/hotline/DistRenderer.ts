@@ -110,7 +110,7 @@ export default class DistRenderer extends Renderer<DistData> {
         if ( ctx === undefined ) return;
         
         const dataLength = this._data.length
-
+        console.log("the data length:", dataLength);
         for (let i = 0; i < dataLength; i++) 
         {
             const path = this._data[i];
