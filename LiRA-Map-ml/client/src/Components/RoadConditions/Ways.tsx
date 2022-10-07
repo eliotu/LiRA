@@ -20,7 +20,7 @@ interface IWays {
 }
 
 const Ways: FC<IWays> = ( { palette, type, onClick, filter } ) => {
-    
+    console.log(filter);
     const zoom = useZoom();
     const { minY, maxY } = useGraph()
 
@@ -36,7 +36,7 @@ const Ways: FC<IWays> = ( { palette, type, onClick, filter } ) => {
                 const popup=createPopup();
                 popup( {
                     icon: "warning",
-                    title: `This trip doesn't the ira `,
+                    title: `This trip doesn't have any value with the ira wanted   `,
                     toast: true
                 } );
         }
