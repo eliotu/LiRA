@@ -8,6 +8,7 @@ import { HotlineEventHandlers } from 'react-leaflet-hotline/lib/types';
 import { useGraph } from '../../context/GraphContext';
 import { WaysConditions } from '../../models/path';
 import { getWaysConditions } from '../../queries/conditions';
+import createPopup from '../createPopup';
 import useZoom from '../Map/Hooks/useZoom';
 import DistHotline from '../Map/Renderers/DistHotline';
 
@@ -35,7 +36,12 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
         },
         mouseover:(e,i)=>{
             console.log("on y est presque");
-            e.popup().setLatLng(latLng).setContent('<p>Hello world!<br />This is a nice popup.</p>').openOn(map);;
+            const popup=createPopup();
+            popup( {
+                icon: "warning",
+                title: `This trip doesn't contain data for `,
+                toast: true
+            } );
         }
 
 

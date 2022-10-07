@@ -13,7 +13,7 @@ const options = ({name, min, max}: ConditionType): ChartOptions<'line'> => ({
     plugins: {
         legend: {
             position: 'top' as const,
-            labels: { color: 'blue' },
+            labels: { color: 'white' },
         },
     },
     scales: {
