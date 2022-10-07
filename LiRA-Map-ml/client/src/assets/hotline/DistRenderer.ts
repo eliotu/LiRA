@@ -178,7 +178,7 @@ export default class DistRenderer extends Renderer<DistData> {
         const end_dist = pointEnd.way_dist
 
         if ( start_dist === end_dist ) return;
-    
+        console.log(conditions.length);
         for ( let i = 0; i < conditions.length; i++ )
         {
             // const { dist: way_dist, value } = conditions[i] as any 
