@@ -50,7 +50,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
             const max = wc.reduce((prev, current) => (prev.value > current.value) ? prev : current).value
             console.log(max)
 
-            console.log(count);
+            console.log("the filter right now is :",count);
             if(max>count){
 
            
