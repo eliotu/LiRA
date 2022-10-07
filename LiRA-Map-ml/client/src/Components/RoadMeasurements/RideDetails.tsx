@@ -73,7 +73,7 @@ const RideDetails: FC = () => {
 
 			<Checkbox 
 				className='ride-metadata-checkbox md-checkbox-add'
-				html={<div>+</div>}
+				html={<div>+-</div>}
 				forceState={addChecked}
 				onClick={showAddMeasurement} />
 			
