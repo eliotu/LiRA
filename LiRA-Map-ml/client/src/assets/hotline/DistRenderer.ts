@@ -178,7 +178,9 @@ export default class DistRenderer extends Renderer<DistData> {
         const end_dist = pointEnd.way_dist
 
         if ( start_dist === end_dist ) return;
-        console.log(conditions.length);
+
+        const max=conditions.reduce((prev, current) => (prev.value > current.value) ? prev : current).value
+        const filter=max>4 ? true: false;
         for ( let i = 0; i < conditions.length; i++ )
         {
             // const { dist: way_dist, value } = conditions[i] as any 
@@ -190,7 +192,7 @@ export default class DistRenderer extends Renderer<DistData> {
             const rgb = this.getRGBForValue(value);                                                      
             const dist = (way_dist - start_dist) / (end_dist - start_dist)
 
-            this._addWayColorGradient(gradient, new Edge(139,69,19), dist, way_id,false)
+            this._addWayColorGradient(gradient, new Edge(...rgb), dist, way_id,filter)
         }
     }
 }
