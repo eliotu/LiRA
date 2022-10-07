@@ -48,7 +48,8 @@ export default class DistRenderer extends Renderer<DistData> {
             ? 0.3
             : 1
         try{
-            gradient.addColorStop(dist, `rgba(${edge.get().join(',')},${opacity})`);
+            gradient.addColorStop(dist, `rgba(80,190,0,1)`);
+            //gradient.addColorStop(dist, `rgba(${edge.get().join(',')},${opacity})`);
             console.log(`rgba(${edge.get().join(',')},${opacity})`);
         
         }
