@@ -16,11 +16,9 @@ interface IWays {
     palette: TRGB[]
     type: string;
     onClick?: (way_id: string, way_length: number) => void;
-    filter?:boolean;
 }
 
-const Ways: FC<IWays> = ( { palette, type, onClick, filter } ) => {
-    console.log(filter);
+const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
     const zoom = useZoom();
     const { minY, maxY } = useGraph()
 

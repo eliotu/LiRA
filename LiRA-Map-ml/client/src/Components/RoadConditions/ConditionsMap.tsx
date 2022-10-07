@@ -32,20 +32,13 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
     const ref = useRef(null);
     const [width, _] = useSize(ref)
 
-    let filter= true;
     const onClick = useCallback( (way_id: string, way_length: number) => {
         getConditions( way_id, name, (wc: Condition[]) => {
             const max = wc.reduce((prev, current) => (prev.value > current.value) ? prev : current).value
             console.log(max)
             if(max>4){
 
-                const popup=createPopup();
-                popup( {
-                    icon: "warning",
-                    title: `This trip doesn't have any value with the ira wanted   `,
-                    toast: true
-                } );
-                filter=false;
+           
                 setWayData( {
                     labels: wc.map( p => p.way_dist * way_length ),
                     datasets: [ {
@@ -61,6 +54,12 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
 
             }
             else{
+                const popup=createPopup();
+                popup( {
+                    icon: "warning",
+                    title: `This trip doesn't have any value with the ira wanted   `,
+                    toast: true
+                } );
                 setWayData( {
                     labels: [],
                     datasets: [ {
@@ -91,7 +90,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
                 onChange={setPalette} />
 
             <MapWrapper>
-                <Ways palette={palette} type={name} onClick={onClick} filter={filter} />
+                <Ways palette={palette} type={name} onClick={onClick}  />
             </MapWrapper>
         </div>
     )
