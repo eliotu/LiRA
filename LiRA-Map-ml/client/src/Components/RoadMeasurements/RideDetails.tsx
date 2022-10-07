@@ -29,6 +29,7 @@ const RideDetails: FC = () => {
 	const editMeasurement = (meas: ActiveMeasProperties, i: number) => (e: React.MouseEvent) => {
 		e.preventDefault()
 		e.stopPropagation()
+		console.log("jhswjhsiu");
 
 		popup( 
 			(newMeas: ActiveMeasProperties) => {
