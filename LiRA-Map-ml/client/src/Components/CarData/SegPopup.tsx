@@ -19,7 +19,7 @@ interface ICheckboxes {
 
 const Checkboxes: FC<ICheckboxes> = ( { typeName, types, type, onClick } ) => {
     console.log(typeName, types, type);
-    
+    console.log("1");
     return (
         <div className="swal-checkboxes">
             <p className="swal-cb-name">{typeName}:</p>
