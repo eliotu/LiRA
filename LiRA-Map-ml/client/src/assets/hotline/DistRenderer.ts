@@ -190,7 +190,7 @@ export default class DistRenderer extends Renderer<DistData> {
             const rgb = this.getRGBForValue(value);                                                      
             const dist = (way_dist - start_dist) / (end_dist - start_dist)
 
-            this._addWayColorGradient(gradient, new Edge(...rgb), dist, way_id)
+            this._addWayColorGradient(gradient, new Edge(...rgb), dist, way_id,false)
         }
     }
 }
