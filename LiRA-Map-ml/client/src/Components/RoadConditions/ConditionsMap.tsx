@@ -14,6 +14,7 @@ import { ConditionType } from "../../models/graph";
 import { Condition } from "../../models/path";
 
 import { getConditions } from "../../queries/conditions";
+import { filter } from "d3";
 
 
 interface Props {
@@ -34,10 +35,11 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
 
     const onClick = useCallback( (way_id: string, way_length: number) => {
         getConditions( way_id, name, (wc: Condition[]) => {
-
+            let filter=true;
             const max = wc.reduce((prev, current) => (prev.value > current.value) ? prev : current).value
             console.log(max)
             if(max>4){
+            filter=false;
             setWayData( {
                 labels: wc.map( p => p.way_dist * way_length ),
                 datasets: [ {
@@ -80,7 +82,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
                 onChange={setPalette} />
 
             <MapWrapper>
-                <Ways palette={palette} type={name} onClick={onClick}/>
+                <Ways palette={palette} type={name} onClick={onClick} filter={true} />
             </MapWrapper>
         </div>
     )

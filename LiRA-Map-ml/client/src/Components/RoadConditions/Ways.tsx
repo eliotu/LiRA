@@ -16,9 +16,10 @@ interface IWays {
     palette: TRGB[]
     type: string;
     onClick?: (way_id: string, way_length: number) => void;
+    filter?:boolean;
 }
 
-const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
+const Ways: FC<IWays> = ( { palette, type, onClick, filter } ) => {
     
     const zoom = useZoom();
     const { minY, maxY } = useGraph()
@@ -31,17 +32,20 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
 
     const handlers = useMemo<HotlineEventHandlers>( () => ({
         click: (_, i) => {
+            if(filter){
+                const popup=createPopup();
+                popup( {
+                    icon: "warning",
+                    title: `This trip doesn't the ira `,
+                    toast: true
+                } );
+        }
             if ( ways && onClick )
                 onClick(ways.way_ids[i], ways.way_lengths[i])
         },
         mouseover:(e,i)=>{
             console.log("on y est presque");
-            const popup=createPopup();
-            popup( {
-                icon: "warning",
-                title: `This trip doesn't contain data for `,
-                toast: true
-            } );
+      
         }
 
 
