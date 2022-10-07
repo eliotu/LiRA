@@ -68,6 +68,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
                 } )
 
             }
+            console.log(filter);
            
         } )
     }, [] )
