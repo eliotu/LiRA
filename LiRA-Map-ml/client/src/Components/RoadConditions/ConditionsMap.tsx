@@ -1,5 +1,5 @@
 
-import { FC, useCallback, useRef, useState } from "react";
+import { FC, useCallback, useMemo, useRef, useState } from "react";
 import { ChartData } from "chart.js";
 import { Palette } from "react-leaflet-hotline";
 
@@ -45,6 +45,8 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
 
 
     }
+
+    console.log("number of f:",count);
 
     const onClick = useCallback( (way_id: string, way_length: number) => {
         console.log("vreoivn",count);
