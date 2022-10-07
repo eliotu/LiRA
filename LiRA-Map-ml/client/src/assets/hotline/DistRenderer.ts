@@ -48,8 +48,9 @@ export default class DistRenderer extends Renderer<DistData> {
             ? 0.3
             : 1
         try{
-            gradient.addColorStop(dist, `rgba(${edge.get().join(',')},${opacity})`);
-            console.log(`rgba(${edge.get().join(',')},${opacity})`);
+            const str = `rgba(${edge.get().join(',')},${opacity})`;
+
+            gradient.addColorStop(dist, str);
         
         }
         catch
@@ -117,7 +118,7 @@ export default class DistRenderer extends Renderer<DistData> {
 
             const way_id = this.way_ids[i];
             const conditions = this.conditions[i]
-
+            console.log(this.conditions[i]);
             for (let j = 1; j < path.length; j++) 
             {
                 const start = path[j - 1];
