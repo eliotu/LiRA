@@ -53,6 +53,7 @@ const RideCards: FC = ( ) => {
     }, [metas])
 
     const onChange = ( { search, startDate, endDate, reversed }: TripsOptions) => {
+        console.log(search);
         const temp: SelectMeta[] = metas
             .filter( (meta: RideMeta) => {
                 const inSearch = search === "" || meta.TaskId.toString().includes(search)
