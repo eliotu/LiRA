@@ -1,5 +1,5 @@
 
-import { FC, useCallback, useMemo, useRef, useState } from "react";
+import { FC, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ChartData } from "chart.js";
 import { Palette } from "react-leaflet-hotline";
 
@@ -45,6 +45,10 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
 
 
     }
+
+    useEffect(()=>
+    console.log("the filter is : ",count),
+    [count]);
 
     const onClick = (way_id: string, way_length: number) => {
         getConditions( way_id, name, (wc: Condition[]) => {
