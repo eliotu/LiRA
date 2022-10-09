@@ -46,7 +46,6 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
 
     }
 
-    const f=count;
     const onClick = useCallback( (way_id: string, way_length: number) => {
         console.log("vreoivn",f);
         getConditions( way_id, name, (wc: Condition[]) => {
@@ -54,7 +53,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
             console.log(max)
 
             console.log("the filter right now is :",count);
-            if(max>f){
+            if(max>count){
 
            
                 setWayData( {
@@ -100,7 +99,6 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
 
     return (
         <div className="road-conditions-map" ref={ref}>
-            <FilteringSelector onChange={onChange}/>
 
             <PaletteEditor 
                 defaultPalette={RENDERER_PALETTE}
@@ -110,6 +108,8 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
 
             <MapWrapper>
                 <Ways palette={palette} type={name} onClick={onClick}  />
+                <FilteringSelector onChange={onChange}/>
+
             </MapWrapper>
         </div>
     )
