@@ -46,16 +46,15 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
 
     }
 
-    useEffect(()=>
-    console.log("the filter is : ",count),
-    [count]);
+    useEffect(()=>{
+        console.log("the filter updated is:",count);
+
+    },[count]);
 
     const onClick = (way_id: string, way_length: number) => {
-        console.log("the filter is 2 : ",count);
-
         getConditions( way_id, name, (wc: Condition[]) => {
             const max = wc.reduce((prev, current) => (prev.value > current.value) ? prev : current).value
-            console.log(max)
+            console.log("maximum value:",max);
 
             console.log("the filter right now is :",count);
             if(max>count){
@@ -100,7 +99,6 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
         } )
     }
 
-    console.log(filter);
 
     return (
         <div className="road-conditions-map" ref={ref}>
