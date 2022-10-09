@@ -98,6 +98,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
 
     return (
         <div className="road-conditions-map" ref={ref}>
+             <FilteringSelector onChange={onChange}/>
 
             <PaletteEditor 
                 defaultPalette={RENDERER_PALETTE}
@@ -107,7 +108,6 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
 
             <MapWrapper>
                 <Ways palette={palette} type={name} onClick={onClick}  />
-                <FilteringSelector onChange={onChange}/>
 
             </MapWrapper>
         </div>
