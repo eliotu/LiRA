@@ -38,6 +38,7 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
                     toast: true
                 } );
         }**/
+        
             if ( ways && onClick )
                 onClick(ways.way_ids[i], ways.way_lengths[i])
         },

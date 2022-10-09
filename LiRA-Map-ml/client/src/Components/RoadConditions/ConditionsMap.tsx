@@ -42,6 +42,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
         if(!isNaN(number)){
             setCount(number);
         }
+        setCount(0);
 
 
     }
