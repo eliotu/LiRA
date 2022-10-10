@@ -39,7 +39,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
         getConditions( way_id, name, (wc: Condition[]) => {
             const max = wc.reduce((prev, current) => (prev.value > current.value) ? prev : current).value
             console.log("maximum value:",max);
-
+            console.log("the filter is:",filter);
             if(max>filter){
 
            
