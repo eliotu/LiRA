@@ -34,32 +34,12 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
     const [width, _] = useSize(ref)
 
 
-    const [count, setCount] = useState(0);
-
-    const onChange=({search}: FilteringOptions) =>{
-        const number=Number(search)
-       
-        if(!isNaN(number)){
-            setCount(number);
-        }
-     
-
-
-    }
-
-    useEffect(()=>{
-        console.log("the filter updated is:",count);
-
-    },[count]);
-
     const onClick = (way_id: string, way_length: number,filter:number) => {
 
-        console.log("count:",count);
         getConditions( way_id, name, (wc: Condition[]) => {
             const max = wc.reduce((prev, current) => (prev.value > current.value) ? prev : current).value
             console.log("maximum value:",max);
 
-            console.log("the filter right now is :",count);
             if(max>filter){
 
            
@@ -105,7 +85,6 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
 
     return (
         <div className="road-conditions-map" ref={ref}>
-             <FilteringSelector onChange={onChange}/>
 
             <PaletteEditor 
                 defaultPalette={RENDERER_PALETTE}

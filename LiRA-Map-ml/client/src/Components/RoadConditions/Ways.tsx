@@ -6,11 +6,13 @@ import { Tooltip } from 'react-leaflet';
 import { HotlineOptions } from 'react-leaflet-hotline';
 import { HotlineEventHandlers } from 'react-leaflet-hotline/lib/types';
 import { useGraph } from '../../context/GraphContext';
+import { FilteringOptions } from '../../models/models';
 import { WaysConditions } from '../../models/path';
 import { getWaysConditions } from '../../queries/conditions';
 import createPopup from '../createPopup';
 import useZoom from '../Map/Hooks/useZoom';
 import DistHotline from '../Map/Renderers/DistHotline';
+import FilteringSelector from './OptionsFiltering';
 
 interface IWays {
     palette: TRGB[]
@@ -23,6 +25,19 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
     const { minY, maxY } = useGraph()
 
     const [ways, setWays] = useState<WaysConditions>()
+    const [count, setCount] = useState(0);
+
+    const onChange=({search}: FilteringOptions) =>{
+        const number=Number(search)
+       
+        if(!isNaN(number)){
+            setCount(number);
+        }
+     
+
+
+    }
+
 
     const options = useMemo<HotlineOptions>( () => ({
         palette, min: minY, max: maxY
@@ -40,7 +55,7 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
         }**/
             console.log("there is a problem");
             if ( ways && onClick )
-                onClick(ways.way_ids[i], ways.way_lengths[i],4)
+                onClick(ways.way_ids[i], ways.way_lengths[i],count)
         },
         mouseover:(e,i)=>{
             console.log("on y est presque");
@@ -48,7 +63,7 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
         }
 
 
-    }), [ways] )
+    }), [ways,count] )
 
     useEffect( () => {
         if ( zoom === undefined ) return;
@@ -71,6 +86,8 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
 
             : null 
         }
+        <FilteringSelector onChange={onChange}/>
+
         </>
     )
 }
