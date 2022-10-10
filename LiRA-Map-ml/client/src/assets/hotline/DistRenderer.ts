@@ -56,7 +56,7 @@ export default class DistRenderer extends Renderer<DistData> {
             console.log("sknwsjwkln");
             if(filter){
                 gradient.addColorStop(dist, `rgba(218,165,32,${opacity})`);
-                
+                console.log("snwj");
 
             }
             else{
