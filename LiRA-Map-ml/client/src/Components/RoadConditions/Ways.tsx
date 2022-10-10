@@ -38,7 +38,7 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
                     toast: true
                 } );
         }**/
-        
+            console.log("there is a problem");
             if ( ways && onClick )
                 onClick(ways.way_ids[i], ways.way_lengths[i])
         },
