@@ -52,7 +52,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
 
     },[count]);
 
-    const onClick = (way_id: string, way_length: number) => {
+    const onClick = (way_id: string, way_length: number,filter:number) => {
 
         console.log("count:",count);
         getConditions( way_id, name, (wc: Condition[]) => {
@@ -60,7 +60,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
             console.log("maximum value:",max);
 
             console.log("the filter right now is :",count);
-            if(max>count){
+            if(max>filter){
 
            
                 setWayData( {

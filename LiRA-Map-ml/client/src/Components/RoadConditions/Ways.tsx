@@ -15,7 +15,7 @@ import DistHotline from '../Map/Renderers/DistHotline';
 interface IWays {
     palette: TRGB[]
     type: string;
-    onClick?: (way_id: string, way_length: number) => void;
+    onClick?: (way_id: string, way_length: number,filter:number) => void;
 }
 
 const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
@@ -40,7 +40,7 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
         }**/
             console.log("there is a problem");
             if ( ways && onClick )
-                onClick(ways.way_ids[i], ways.way_lengths[i])
+                onClick(ways.way_ids[i], ways.way_lengths[i],4)
         },
         mouseover:(e,i)=>{
             console.log("on y est presque");
