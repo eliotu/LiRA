@@ -86,9 +86,14 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
 
             : null 
         }
-        <FilteringSelector onChange={onChange}/>
 
+        <div className='toolbar-wrapper'>
+
+            <FilteringSelector onChange={onChange}/>
+
+        </div>
         </>
+
     )
 }
 
