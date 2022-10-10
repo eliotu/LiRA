@@ -68,7 +68,8 @@ const BoundedWays: FC<IWays> = ( { palette, type, onClick } ) => {
                     way_ids={ways.way_ids}
                     geometry={ways.geometry}
                     conditions={ways.conditions} 
-                    options={options} /> 
+                    options={options}
+                    filter={4} /> 
                 : null 
             }
         </WithBounds>

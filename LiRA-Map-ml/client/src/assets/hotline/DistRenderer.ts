@@ -182,7 +182,7 @@ export default class DistRenderer extends Renderer<DistData> {
 
         if ( start_dist === end_dist ) return;
 
-        const max=conditions.reduce((prev, current) => (prev.value > current.value) ? prev : current).value
+        const max=conditions.reduce((prev, current) => (prev.value > current.value) ? prev : current).value;
         console.log(this.filter);
 
         const filter=max>this.filter ? true: false;
