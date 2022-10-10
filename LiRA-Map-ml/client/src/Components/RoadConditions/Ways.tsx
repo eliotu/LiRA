@@ -82,7 +82,8 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
                     geometry={ways.geometry}
                     conditions={ways.conditions}
                     options={options}
-                    eventHandlers={handlers} /><Tooltip> xdn </Tooltip></>
+                    eventHandlers={handlers}
+                    filter={count} /><Tooltip> xdn </Tooltip></>
 
             : null 
         }

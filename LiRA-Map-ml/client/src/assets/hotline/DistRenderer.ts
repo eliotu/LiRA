@@ -6,7 +6,8 @@ import { Condition, Node, WayId } from "../../models/path";
 import { DotHover } from '../graph/types';
 import { DistData, DistPoint } from "./hotline";
 import Edge from "./Edge";
-
+import Ways from '../../Components/RoadConditions/Ways';
+import { count } from 'd3';
 
 export default class DistRenderer extends Renderer<DistData> {
 
@@ -14,12 +15,14 @@ export default class DistRenderer extends Renderer<DistData> {
     conditions: Condition[][];
     edgess: Edge[][];
     dotHover: DotHover | undefined;
+    filter:number | 0;
 
     constructor( options?: HotlineOptions, ...args: any[] ) 
     {
         super({...options})
         this.way_ids = args[0][0];
         this.conditions = args[0][1];
+        this.filter=args[0][1];
         this.edgess = [];
         this.dotHover = undefined;
     }
@@ -127,7 +130,7 @@ export default class DistRenderer extends Renderer<DistData> {
             const conditions = this.conditions[i]
             
             const max=this.conditions[i].reduce((prev, current) => (prev.value > current.value) ? prev : current).value
-            const filter=max>4 ? true: false;
+            const filter=max>this.filter ? true: false;
             
             for (let j = 1; j < path.length; j++) 
             {
@@ -180,7 +183,7 @@ export default class DistRenderer extends Renderer<DistData> {
         if ( start_dist === end_dist ) return;
 
         const max=conditions.reduce((prev, current) => (prev.value > current.value) ? prev : current).value
-        const filter=max>4 ? true: false;
+        const filter=max>this.filter ? true: false;
         for ( let i = 0; i < conditions.length; i++ )
         {
             // const { dist: way_dist, value } = conditions[i] as any 

@@ -25,7 +25,7 @@ interface IDistHotline {
     conditions: Condition[][];
     options?: HotlineOptions,
     eventHandlers?: HotlineEventHandlers;
-    filter?:boolean;
+    filter?:number;
 
 }
 
@@ -63,7 +63,7 @@ const DistHotline: FC<IDistHotline> = ( { way_ids, geometry, conditions, options
     const { hotline } = useCustomHotline<Node, DistData>( 
         DistRenderer, HoverHotPolyline, 
         { data: geometry, getLat, getLng, getVal, options: opts, eventHandlers: handlers}, 
-        way_ids, conditions 
+        way_ids, conditions,filter,
     );
     
     useEffect( () => {
