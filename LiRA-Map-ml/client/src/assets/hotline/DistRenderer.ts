@@ -22,7 +22,6 @@ export default class DistRenderer extends Renderer<DistData> {
         this.way_ids = args[0][0];
         this.conditions = args[0][1];
         this.filter=args[2][0];
-        console.log(this.filter);
         this.edgess = [];
         this.dotHover = undefined;
     }
@@ -183,6 +182,7 @@ export default class DistRenderer extends Renderer<DistData> {
         if ( start_dist === end_dist ) return;
 
         const max=conditions.reduce((prev, current) => (prev.value > current.value) ? prev : current).value
+        console.log(this.filter);
 
         const filter=max>this.filter ? true: false;
         for ( let i = 0; i < conditions.length; i++ )
