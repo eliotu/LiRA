@@ -33,54 +33,52 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
     const ref = useRef(null);
     const [width, _] = useSize(ref)
 
-    let count=0;
+    
     const onClick = (way_id: string, way_length: number,filter:number) => {
 
         getConditions( way_id, name, (wc: Condition[]) => {
-            count=filter;
-            useEffect(()=>{  const max = wc.reduce((prev, current) => (prev.value > current.value) ? prev : current).value
-                console.log("maximum value:",max);
-                console.log("the filter is:",count);
-                if(max>filter){
-    
-               
-                    setWayData( {
-                        labels: wc.map( p => p.way_dist * way_length ),
-                        datasets: [ {
-                            type: 'line' as const,
-                            label: way_id,
-                            borderColor: 'rgb(160,32,240)',
-                            borderWidth: 2,
-                            fill: false,
-                            tension: 0.1,
-                            data: wc.map( p => p.value ),
-                        } ]
-                    } )
-    
-                }
-                else{
-                   
-                    setWayData( {
-                        labels: [],
-                        datasets: [ {
-                            type: 'line' as const,
-                            label: way_id,
-                            borderColor: 'rgb(160,32,240)',
-                            borderWidth: 2,
-                            fill: false,
-                            tension: 0.1,
-                            data: [],
-                        } ]
-                    } )
-                    const popup=createPopup();
-                    popup( {
-                        icon: "warning",
-                        title: `This trip doesn't have any value with the ira wanted   `,
-                        toast: true
-                    } );
-    
-                }},[count])
+            const max = wc.reduce((prev, current) => (prev.value > current.value) ? prev : current).value
+            console.log("maximum value:",max);
+            console.log("the filter is:",filter);
+            if(max>filter){
+
            
+                setWayData( {
+                    labels: wc.map( p => p.way_dist * way_length ),
+                    datasets: [ {
+                        type: 'line' as const,
+                        label: way_id,
+                        borderColor: 'rgb(160,32,240)',
+                        borderWidth: 2,
+                        fill: false,
+                        tension: 0.1,
+                        data: wc.map( p => p.value ),
+                    } ]
+                } )
+
+            }
+            else{
+               
+                setWayData( {
+                    labels: [],
+                    datasets: [ {
+                        type: 'line' as const,
+                        label: way_id,
+                        borderColor: 'rgb(160,32,240)',
+                        borderWidth: 2,
+                        fill: false,
+                        tension: 0.1,
+                        data: [],
+                    } ]
+                } )
+                const popup=createPopup();
+                popup( {
+                    icon: "warning",
+                    title: `This trip doesn't have any value with the ira wanted   `,
+                    toast: true
+                } );
+
+            }
            
         } )
     }
