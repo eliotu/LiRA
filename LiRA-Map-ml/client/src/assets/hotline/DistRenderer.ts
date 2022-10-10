@@ -7,7 +7,6 @@ import { DotHover } from '../graph/types';
 import { DistData, DistPoint } from "./hotline";
 import Edge from "./Edge";
 import Ways from '../../Components/RoadConditions/Ways';
-import { count } from 'd3';
 
 export default class DistRenderer extends Renderer<DistData> {
 
@@ -183,6 +182,8 @@ export default class DistRenderer extends Renderer<DistData> {
         if ( start_dist === end_dist ) return;
 
         const max=conditions.reduce((prev, current) => (prev.value > current.value) ? prev : current).value
+
+        console.log("filter for the color:",this.filter);
         const filter=max>this.filter ? true: false;
         for ( let i = 0; i < conditions.length; i++ )
         {

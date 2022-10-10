@@ -58,12 +58,7 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
 
             }
             else{
-                const popup=createPopup();
-                popup( {
-                    icon: "warning",
-                    title: `This trip doesn't have any value with the ira wanted   `,
-                    toast: true
-                } );
+               
                 setWayData( {
                     labels: [],
                     datasets: [ {
@@ -76,6 +71,12 @@ const ConditionsMap: FC<Props> = ( { type, palette, setPalette, setWayData } ) =
                         data: [],
                     } ]
                 } )
+                const popup=createPopup();
+                popup( {
+                    icon: "warning",
+                    title: `This trip doesn't have any value with the ira wanted   `,
+                    toast: true
+                } );
 
             }
            
