@@ -21,7 +21,8 @@ export default class DistRenderer extends Renderer<DistData> {
         super({...options})
         this.way_ids = args[0][0];
         this.conditions = args[0][1];
-        this.filter=args[2][0];
+        this.filter=args[2];
+        
         this.edgess = [];
         this.dotHover = undefined;
     }
