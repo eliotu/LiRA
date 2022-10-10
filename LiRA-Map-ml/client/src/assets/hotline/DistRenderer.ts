@@ -22,6 +22,7 @@ export default class DistRenderer extends Renderer<DistData> {
         this.way_ids = args[0][0];
         this.conditions = args[0][1];
         this.filter=args[0][1];
+        console.log(args);
         this.edgess = [];
         this.dotHover = undefined;
     }
@@ -183,7 +184,6 @@ export default class DistRenderer extends Renderer<DistData> {
 
         const max=conditions.reduce((prev, current) => (prev.value > current.value) ? prev : current).value
 
-        console.log("filter for the color:",this.filter);
         const filter=max>this.filter ? true: false;
         for ( let i = 0; i < conditions.length; i++ )
         {
