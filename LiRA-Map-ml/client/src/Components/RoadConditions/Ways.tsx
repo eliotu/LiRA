@@ -25,13 +25,13 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
     const { minY, maxY } = useGraph()
 
     const [ways, setWays] = useState<WaysConditions>()
-    const [count, setCount] = useState<number[]>([]);
+    const [count, setCount] = useState(0);
 
     const onChange=({search}: FilteringOptions) =>{
         const number=Number(search)
        
         if(!isNaN(number)){
-            setCount([number]);
+            setCount(number);
         }
      
 
@@ -45,8 +45,6 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
 
     const handlers = useMemo<HotlineEventHandlers>( () => ({
         click: (_, i) => {
-            console.log(count);
-
            /**  if(filter){
                 const popup=createPopup();
                 popup( {
@@ -55,14 +53,9 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
                     toast: true
                 } );
         }**/
+            console.log("there is a problem");
             if ( ways && onClick )
-                if(count.length===0){
-                    onClick(ways.way_ids[i], ways.way_lengths[i],0)
-                }
-                else{
-                    onClick(ways.way_ids[i], ways.way_lengths[i],count[0])
-
-                }
+                onClick(ways.way_ids[i], ways.way_lengths[i],count)
         },
      
 
@@ -86,7 +79,7 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
                     conditions={ways.conditions}
                     options={options}
                     eventHandlers={handlers}
-                    filter={count[0]} /><Tooltip> xdn </Tooltip></>
+                    filter={count} /><Tooltip> xdn </Tooltip></>
 
             : null 
         }

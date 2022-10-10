@@ -59,6 +59,7 @@ const BoundedWays: FC<IWays> = ( { palette, type, onClick } ) => {
         setWays( data )
         if ( onClick )
             setTimeout( onClick(data.way_ids[0], data.way_lengths[0]), 100 )
+            console.log("BoundedWays");
     }
 
     return (
