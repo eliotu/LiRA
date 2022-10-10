@@ -21,9 +21,7 @@ export default class DistRenderer extends Renderer<DistData> {
         super({...options})
         this.way_ids = args[0][0];
         this.conditions = args[0][1];
-        console.log("1");
         this.filter=args[2];
-        console.log("2");
 
         this.edgess = [];
         this.dotHover = undefined;
@@ -53,10 +51,8 @@ export default class DistRenderer extends Renderer<DistData> {
             ? 0.3
             : 1
         try{
-            console.log("sknwsjwkln");
             if(filter){
                 gradient.addColorStop(dist, `rgba(218,165,32,${opacity})`);
-                console.log("snwj");
 
             }
             else{
