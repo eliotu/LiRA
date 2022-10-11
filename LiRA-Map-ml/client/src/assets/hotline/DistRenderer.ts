@@ -184,7 +184,7 @@ export default class DistRenderer extends Renderer<DistData> {
         if ( start_dist === end_dist ) return;
 
         const max=conditions.reduce((prev, current) => (prev.value > current.value) ? prev : current).value;
-
+        console.log("count is:",this.count);
         const filter=max>this.count ? false: true;
         for ( let i = 0; i < conditions.length; i++ )
         {
