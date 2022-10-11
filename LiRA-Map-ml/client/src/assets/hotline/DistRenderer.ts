@@ -24,8 +24,8 @@ export default class DistRenderer extends Renderer<DistData> {
         this.edgess = [];
         this.dotHover = undefined;
         this.count=0;
-        if(options?.filter != undefined){
-            this.count=options?.filter;
+        if(options?.tolerance != undefined){
+            this.count=options?.tolerance;
         }
     }
 
