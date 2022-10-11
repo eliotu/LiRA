@@ -40,7 +40,7 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
 
 
     const options = useMemo<HotlineOptions>( () => ({
-        palette, min: minY, max: maxY
+        palette, min: minY, max: maxY, filter:count
     } ), [palette, minY, maxY] )
 
     const handlers = useMemo<HotlineEventHandlers>( () => ({

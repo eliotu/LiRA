@@ -13,17 +13,20 @@ export default class DistRenderer extends Renderer<DistData> {
     conditions: Condition[][];
     edgess: Edge[][];
     dotHover: DotHover | undefined;
-    filter:number | 0;
+    count:number | 0;
 
     constructor( options?: HotlineOptions, ...args: any[] ) 
     {
+        
         super({...options})
         this.way_ids = args[0][0];
         this.conditions = args[0][1];
-        this.filter=args[0][2];
-    
         this.edgess = [];
         this.dotHover = undefined;
+        this.count=0;
+        if(options?.filter != undefined){
+            this.count=options?.filter;
+        }
     }
 
     projectLatLngs(_map: Map, latlngs: LatLng[], result: any, projectedBounds: any) 
@@ -114,7 +117,6 @@ export default class DistRenderer extends Renderer<DistData> {
 
     _drawHotline(): void 
     {
-        console.log("palette:",this.palette);
         const ctx = this._ctx;
         if ( ctx === undefined ) return;
         
@@ -129,7 +131,7 @@ export default class DistRenderer extends Renderer<DistData> {
             const conditions = this.conditions[i]
             
             const max=this.conditions[i].reduce((prev, current) => (prev.value > current.value) ? prev : current).value
-            const filter=max>4 ? true: false;
+            const filter=max>this.count ? true: false;
             
             for (let j = 1; j < path.length; j++) 
             {
@@ -182,9 +184,8 @@ export default class DistRenderer extends Renderer<DistData> {
         if ( start_dist === end_dist ) return;
 
         const max=conditions.reduce((prev, current) => (prev.value > current.value) ? prev : current).value;
-        console.log(this.filter);
 
-        const filter=max>4 ? true: false;
+        const filter=max>this.count ? true: false;
         for ( let i = 0; i < conditions.length; i++ )
         {
             // const { dist: way_dist, value } = conditions[i] as any 
