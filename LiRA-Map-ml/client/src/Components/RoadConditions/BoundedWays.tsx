@@ -7,10 +7,10 @@
  * NOT REALLY WORKING (but almost I think) 
  * Writing tests for this is advised
  * 
- * Ideally => make it work and use BoundedWays instead of Ways
+ * Ideally => make it work and use Ways instead of Ways
  * when dealing with large amount of data.
  * 
- * /!\ TO FIX: BoundedWays.tsx AND WithBounds.tsx
+ * /!\ TO FIX: Ways.tsx AND WithBounds.tsx
  * 
  */
 
@@ -26,7 +26,7 @@ import { useGraph } from '../../context/GraphContext';
 
 import { WaysConditions } from '../../models/path';
 
-import { getBoundedWaysConditions } from '../../queries/conditions';
+import { getWaysConditions } from '../../queries/conditions';
 
 import DistHotline from '../Map/Renderers/DistHotline';
 import WithBounds from '../Map/WithBounds';
@@ -39,7 +39,7 @@ interface IWays {
     onClick?: (way_id: string, way_length: number) => () => void;
 }
 
-const BoundedWays: FC<IWays> = ( { palette, type, onClick } ) => {
+const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
     
     const zoom = useZoom();
     const { minY, maxY } = useGraph()
@@ -54,12 +54,11 @@ const BoundedWays: FC<IWays> = ( { palette, type, onClick } ) => {
     const request = async (bounds: LatLngBounds) => {
         if ( zoom === undefined ) return;
         const z = Math.max(1, zoom - 12)
-        const { data } = await getBoundedWaysConditions(toMapBounds(bounds), type, z)
-        console.log(data);
+        const { data } = await getWaysConditions(toMapBounds(bounds), type, z)
         setWays( data )
         if ( onClick )
             setTimeout( onClick(data.way_ids[0], data.way_lengths[0]), 100 )
-            console.log("BoundedWays");
+            console.log("Ways");
     }
 
     return (
@@ -77,4 +76,4 @@ const BoundedWays: FC<IWays> = ( { palette, type, onClick } ) => {
     )
 }
 
-export default BoundedWays;
+export default Ways;
