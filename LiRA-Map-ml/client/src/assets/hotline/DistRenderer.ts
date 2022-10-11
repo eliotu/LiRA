@@ -6,7 +6,6 @@ import { Condition, Node, WayId } from "../../models/path";
 import { DotHover } from '../graph/types';
 import { DistData, DistPoint } from "./hotline";
 import Edge from "./Edge";
-import Ways from '../../Components/RoadConditions/Ways';
 
 export default class DistRenderer extends Renderer<DistData> {
 
@@ -115,6 +114,7 @@ export default class DistRenderer extends Renderer<DistData> {
 
     _drawHotline(): void 
     {
+        console.log("palette:",this.palette);
         const ctx = this._ctx;
         if ( ctx === undefined ) return;
         

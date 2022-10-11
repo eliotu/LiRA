@@ -60,7 +60,7 @@ const Ways: FC<IWays> = ( { palette, type, onClick } ) => {
      
 
 
-    }), [ways] )
+    }), [count,ways] )
 
     useEffect( () => {
         if ( zoom === undefined ) return;
