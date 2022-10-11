@@ -131,7 +131,7 @@ export default class DistRenderer extends Renderer<DistData> {
             const conditions = this.conditions[i]
             
             const max=this.conditions[i].reduce((prev, current) => (prev.value > current.value) ? prev : current).value
-            const filter=max>this.count ? true: false;
+            const filter=max>this.count  ? false: true;
             
             for (let j = 1; j < path.length; j++) 
             {
@@ -185,7 +185,7 @@ export default class DistRenderer extends Renderer<DistData> {
 
         const max=conditions.reduce((prev, current) => (prev.value > current.value) ? prev : current).value;
 
-        const filter=max>this.count ? true: false;
+        const filter=max>this.count ? false: true;
         for ( let i = 0; i < conditions.length; i++ )
         {
             // const { dist: way_dist, value } = conditions[i] as any 
