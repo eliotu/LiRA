@@ -42,6 +42,8 @@ const DistHotline: FC<IDistHotline> = ( { way_ids, geometry, conditions, options
     const { dotHover } = useGraph()
     const zoom = useZoom()
 
+    console.log(options?.tolerance);
+
     const opts = useMemo( () => ({ 
         ...options, weight: getWeight(zoom)
     }), [options, zoom] )
