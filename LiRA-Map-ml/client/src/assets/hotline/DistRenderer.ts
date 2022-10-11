@@ -22,8 +22,7 @@ export default class DistRenderer extends Renderer<DistData> {
         this.way_ids = args[0][0];
         this.conditions = args[0][1];
         this.filter=args[0][2];
-        console.log("arguments are :",args);
-        console.log("filter in constructor:",this.filter);
+    
         this.edgess = [];
         this.dotHover = undefined;
     }
